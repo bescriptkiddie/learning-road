@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // es5继承；
+    // 父类
+    // function  Dad(name){
+    //     this.name = name;
+    //     this.age = 20;
+    // }
+    // // 子类
+    // function Son(name){
+    //     Dad.call(this,name);
+    //     this.height = "178cm";
+    // }
+    // let lisi =  new Son("李四");
+    // console.log(lisi);
+
+
+    class Dad{
+        constructor(name){
+            console.log("dad..")
+            this.name = name;
+            this.age = 20;
+        }
+        action(){
+            console.log("action");
+        }
+    }
+    Dad.num = 10;
+
+    class Son extends Dad{
+        constructor(name){
+            super(name);
+            // this.name = "张三"
+            this.height = "178cm";
+        }
+        action(){
+            super.action();
+            console.log("子类的action");
+        }
+    }
+    console.log(Son.num);
+    let lisi =  new Son("李四");
+    // console.log(lisi);
+    lisi.action();
+
+
+
+
+
+
+
+</script>
+</html>

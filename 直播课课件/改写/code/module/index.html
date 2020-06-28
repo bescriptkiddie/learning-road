@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script type="module">
+// 变量污染； 1 导出 export default、export   2 导入 import ...  from ...  ；{a};
+import myobj,{c as e,d} from './a.js';
+// console.log(e,d);
+// console.log(myobj);
+// myobj.fn();
+import * as obj from './a.js';
+// console.log(obj.default.a);
+
+
+</script>
+
+</html>

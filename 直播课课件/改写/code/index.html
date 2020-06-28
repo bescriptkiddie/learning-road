@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// 面向过程； 
+// 面向对象 （思维方式）；1. 研究对象(研究对象属性和方法) 2.抽象对象成类（复用性变高）；3.研究类之间关系； （扩展性强）
+
+// 构造函数 ---》类
+// function Person(){
+//     this.name = "张安";
+//     this.age = 20;
+//     // this.action = function(){
+//     //     console.log("走");
+//     // }
+// }
+// Person.prototype.action = function(){
+//         console.log("走");
+// }
+
+class Person{
+    // height = "178cm";
+    static str = "数据";
+    constructor(name){
+        this.name = name;
+        this.age = 20;
+        // this.action = function(){
+        //    console.log("test"); 
+                // function test(){
+
+                // }
+        // }
+        // this.fn = function(){
+
+        // }
+    }
+    get height(){
+        return "178cm";
+    }
+    set height(newValue){
+        console.log(newValue);
+    }
+    action(){
+        console.log("走");
+        console.log(this.age)
+    }
+    fn(){
+        console.log("fn");
+    }
+
+}
+// 静态成员；
+// es5写法；
+// Person.str = "数据";
+console.log(Person.str);
+// console.log(typeof Person);
+// Object.prototype  
+let zhangsan = new Person("张三");
+let lisi = new Person("李四");
+// console.log( zhangsan.__proto__ ===  lisi.__proto__);  //true;
+// console.log(zhangsan.action === lisi.action)
+zhangsan.action();
+
+
+// Promise.all();
+// Promise.race();
+
+
+
+
+
+</script>
+</html>

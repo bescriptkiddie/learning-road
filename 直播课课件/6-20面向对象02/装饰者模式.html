@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 装饰者模式
+
+    class Yase{
+        constructor(){
+            this.name = "亚瑟";
+        }
+        fire(){
+            console.log("开火了...");
+            // console.log("100点伤害");
+        }
+    }
+
+    // 增强；（造成100点伤害）;
+    // 装饰者；
+    Function.prototype.DecoratorFn = function(fn,arg){
+        console.log(arg);
+        this();
+        fn(arg);
+    }
+
+    function hurt(name){
+        console.log("100点伤害",name);
+
+    }    
+
+    let yase = new Yase();
+    yase.fire.DecoratorFn(hurt,"张三");
+
+
+
+
+</script>
+</html>
