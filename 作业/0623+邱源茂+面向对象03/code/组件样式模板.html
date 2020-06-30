@@ -142,21 +142,19 @@
     <button class="btn2">点击显示input</button>
     <show-dialog title="我的标题11">点击</show-dialog>
     <script type="module">
-        import Dialog,{ExtendsDialog} from './dialog.js';
+        import Dialog, { ExtendsDialog } from './dialog.js';
         let dialog = new Dialog({
             width: "40%",
             title: "我的标题",
             content: "我的内容",
             isCancel: true,
             maskable: true,
-            dragable:false,
+            dragable: false,
             cancel() {
                 console.log("点击了取消");
             },
-            success() {
-                console.log("点击了确定");
-            }
         })
+
         document.querySelector(".btn").onclick = function () {
             // 显示组件；
             dialog.open();
@@ -164,23 +162,17 @@
 
         let dialog2 = new ExtendsDialog({
             success(e) {
-                console.log("点击了确定",e.detail);
+                console.log("点击了确定", e.detail);
             }
         });
-        document.querySelector(".btn2").onclick = function(){
+
+        document.querySelector(".btn2").onclick = function () {
             dialog2.open();
         }
 
-
-        document.querySelector("show-dialog").addEventListener("confim",function(){
+        document.querySelector("show-dialog").addEventListener("confim", function () {
             console.log("外部触发...");
         })
-
-
-
-
-
-
     </script>
 
 </body>
