@@ -92,11 +92,48 @@ class Jq{
     getStyle(ele,styleName){
        return  getComputedStyle(ele,null)[styleName];
     }
+
     setStyle(ele,styleName,styleValue){
         if(typeof styleValue === "number"){
             styleValue = styleValue + "px";
         }
         ele.style[styleName] = styleValue;
+    }
+    // animate动画函数
+    // json属性变化, interval改变的时间间隔 ,acceleration变化速度,fn执行回调
+    animate(json, interval, acceleration, fn) {
+        for(let i=0;i<this.length;i++){
+            let ele = this[i]
+            //确保对象之前没有设置定时器
+            clearInterval(ele.timer);
+            ele.timer = setInterval(() =>{
+                //flag 用于清除定时器 style 当前属性值
+                let flag = true;
+                let style;
+                for(let styleName in json) {
+                    style = parseInt(this.getStyle(ele, styleName));
+                    console.log(style);
+                    // target需要达到的目标属性,speed 当前速度,
+                    let target =  parseInt(json[styleName])
+                    let speed = (target - style) * acceleration;
+                    speed = speed > 0 ? Math.ceil(speed): Math.floor(speed);
+                    // 判断是否达到目标值
+                    if(style != target){
+                        flag = false;
+                    }
+                    //当前像素
+                    ele.style[styleName] = style + speed + "px";
+                    console.log(ele.style[styleName]);
+                }
+                //达到目标值,清除定时器
+                if(flag){
+                    clearInterval(ele.timer);
+                    if(fn){
+                        fn();
+                    }
+                }
+            },interval);
+        }
     }
 }
 
