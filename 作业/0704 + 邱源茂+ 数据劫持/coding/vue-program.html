@@ -5,24 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue-test</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script src="./myvue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <div id="app">
         {{message}}
     </div>
+    {{message}}
 </body>
 <script>
-    let vm = new VUe({
+    let vm = new Vue({
         el: "#app",
         data: {
             message: "测试数据"
         }
     })
+    //1.数据是怎么渲染到视图里面去的
+    console.log(vm._data)
     setTimeout(() => {
-        vm._data, message = "修改后数据!"
+        vm._data.message = "修改后数据!"
     }, 1000)
 </script>
 
