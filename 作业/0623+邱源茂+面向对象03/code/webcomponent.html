@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <my-com>
+        1111
+    </my-com> -->
+    <!-- <my-com>
+        2222
+    </my-com> -->
+    <img is="my-img" src="#" />
+</body>
+<script>
+    // 自定义组件；
+    // class MyCom extends HTMLElement{
+    //     constructor(){
+    //         super();
+    //         // console.log(this);
+    //         let div = document.createElement("div");
+    //         div.innerHTML = `<button>我是按钮</button>`;
+    //         let _sd = this.attachShadow({mode:"open"})
+    //         _sd.appendChild(div);
+    //         // this.appendChild(div);
+    //     }
+    // }
+    // customElements.define("my-com",MyCom);
+
+
+//     // 外部获取dom
+//    let ele =   document.querySelector("my-com");
+//    console.log( ele.shadowRoot);
+
+// 继承html元素；
+class MyImg extends HTMLImageElement{
+    constructor(){
+        super();
+        console.log(this);
+        setTimeout(()=>{
+            this.src = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg"
+        },1000)
+
+    }
+}
+
+customElements.define("my-img",MyImg,{
+    extends:"img"
+})
+
+</script>
+</html>

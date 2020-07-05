@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        function move(ele, dir, target) {
+            return new Promise((resolve, reject) => {
+                function fn() {
+                    let start = parseInt(ele.style[dir]) || 0;
+                    let dis = (target - start) / Math.abs(target - start);
+                    console.log(dis);
+                    let speed = 5 * dis;
+                    setTimeout(() => {
+                        start += speed;
+                        if (start === target) {
+                            resolve("运动完成");
+                        } else {
+                            ele.style[dir] = start + "px";
+                            fn();
+                        }
+                    }, 10)
+                }
+                fn()
+            })
+        }
+        let ele = document.querySelector(".box");
+
+        //async await 改造方块运动；
+        async function asyncFn() {
+            try {
+                await move(ele, "left", 300)
+                await move(ele, "top", 300)
+                await move(ele, "left", 0)
+                await move(ele, "top", 0)
+                console.log("所有运动完成")
+            } catch (err) {
+                console.log("异常!", err);
+            }
+        }
+        asyncFn();
+    </script>
+</body>
+
+</html>

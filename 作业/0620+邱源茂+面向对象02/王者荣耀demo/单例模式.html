@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import Single from './single.js';
+        // Single.instance = {name:"修改的"};
+        let zhangsan  = new Single("张三");
+        let lisi  = new Single("李四");
+        console.log(zhangsan,lisi);
+    </script>
+</body>
+</html>

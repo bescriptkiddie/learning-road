@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+class Test{
+    constructor(){
+        // this.age = 20;
+    }
+    get age(){
+        console.log("get....")
+        return 20;
+    }
+    set age(value){
+        console.log("set...");
+        console.log(value)
+    }
+}
+
+let test = new Test();
+// console.log(test.age);  //触发get方法 
+test.age = 30;  //设置 
+
+
+
+</script>
+</html>

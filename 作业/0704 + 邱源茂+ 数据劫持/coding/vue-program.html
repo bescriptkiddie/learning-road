@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-test</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="./myvue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+</body>
+<script>
+    let vm = new VUe({
+        el: "#app",
+        data: {
+            message: "测试数据"
+        }
+    })
+    setTimeout(() => {
+        vm._data, message = "修改后数据!"
+    }, 1000)
+</script>
+
+</html>
