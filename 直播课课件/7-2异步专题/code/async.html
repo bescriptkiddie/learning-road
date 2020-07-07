@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 同步阻塞 （同步非阻塞）
+        // 异步非阻塞 （异步阻塞）;
+
+        function fn(cb){
+            setTimeout(()=>{
+                console.log("fn...")
+                cb && cb();
+            },100)
+        }
+        // 回调函数 cb
+        fn(function(){
+            console.log(2222);
+        });
+       
+        // console.log(2222);
+
+
+    </script>
+</body>
+
+</html>

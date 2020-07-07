@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let p1 = new Promise((resolve, reject) => {
+        console.log("p1");
+        setTimeout(() => {
+            // resolve(111);
+            reject("error");
+        }, 2000)
+    })
+    let p2 = new Promise((resolve, reject) => {
+        console.log("p2");
+        setTimeout(() => {
+            resolve(2222);
+        }, 1000)
+    })
+    //   let res =   Promise.resolve("success");
+    //   console.log(res);
+    // let res =   Promise.reject("error");
+    //   console.log(res);
+    // 所有promise对象都成功
+    // Promise.all([p1,p2]).then(res=>{
+    //     console.log(res);
+    // })
+    // race 拿到先执行的结果
+    // Promise.race([p1,p2]).then(res=>{
+    //     console.log(res);
+    // })
+
+    // fanilly ：
+    // p1.then(res=>{
+    //     console.log(res)
+    // }).catch(err=>{
+    //     console.log(err);
+    // }).finally(()=>{
+    //     console.log("执行完成");
+    // });
+    // async 和 await
+    // p1.then(res=>{
+    //     console.log(res);
+    //     return p2;
+    // }).then(res=>{
+    //     console.log(res)
+    // }).catch(err=>{
+    //     console.log(err);
+    // })
+
+    // async function asyncFn() {
+    //     // 异步过程  同步写法；await 后面跟promise 对象；
+    //     try {
+    //         let res1 = await p1;
+    //         console.log(res1);
+            // let res2 = await p2;
+            // console.log(res2)
+    //     } catch (err) {
+    //         console.log("??",err);
+    //     }
+
+    // }
+    // asyncFn();
+    // function test(){
+    //     p1.then(res=>{
+
+    //     })
+    // p2.then(res=>{
+
+//     })
+    // }
+
+    // 作业 通过 async 及 await 改造方块运动；
+
+
+
+
+</script>
+
+</html>

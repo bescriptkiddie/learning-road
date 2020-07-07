@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+
+<body>
+    <iframe frameborder="0" name="baidu" height="1000px" width="100%" src="http://www.baidu.com" frameborder="0"
+        scrolling="auto"></iframe>
+    <script>
+
+        let p1 = new promise((resolve, reject) => {
+            resolve("success")
+            reject("error")
+            setTimeout(() => {
+                resolve("成功")
+            })
+        })
+        p1.then(res => {
+            console.log(res)
+        }, err => {
+            console.log(err)
+        })
+    </script>
+
+
+
+</body>
+
+</html>
