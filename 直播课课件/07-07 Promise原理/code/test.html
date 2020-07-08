@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// let arr = [function(){
+//     console.log(1111);
+// },function(){
+//     console.log(222);
+// },function(){
+//     console.log(3333);
+// }];
+// let cb;
+// while(cb=arr.shift()){
+//     cb();
+// }
+
+let observer = new MutationObserver(function(){
+    console.log("微任务回调");
+})
+observer.observe(document.body,{
+    attributes: true
+})
+document.body.setAttribute("kkb",Math.random());
+
+
+
+
+
+
+
+
+
+</script>
+</html>

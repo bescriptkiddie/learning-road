@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>原生promise</h1>
+</body>
+<script>
+    // 宏任务；
+//     setTimeout(() => {
+//         console.log("settimeout....");  
+//     }, 0);
+//     // promise 微任务；MutationObserver 微任务； process.nextTick;
+//     let p = new Promise((resolve,reject)=>{
+//         // setTimeout(() => {
+//             resolve("success")
+//         // }, 10);
+       
+//         // reject("err")
+//     })
+//     // console.log(p);
+//     // then: 2个参数 onresolved onrejected
+//   let res =   p.then(res=>{
+//         console.log("1",res);
+//         // return  112233;
+//         return new Promise(resolve=>{
+//             resolve("返还的值");
+//         })
+//     })
+
+//     console.log(res);
+
+    // then ：返还值；1.没有返还 2.返还普通值；3.返还promise对象； 总结：返还promise对象--->链式操作；
+    // p.then(res=>{
+    //     console.log("2",res)
+    // })
+
+//   let p =   Promise.resolve("111");
+//   console.log(p)
+    //  let p =    new Promise((resolve,reject)=>{
+    //         reject("err...");
+    //     })
+    //     p.then(res=>{
+    //         console.log(res);
+    //     }).catch(err=>{
+    //         console.log(err);
+    //     })
+    let p1 = new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            // resolve(111);
+            reject("失败")
+        }, 1000);
+    })
+    p1.then(res=>{
+        console.log(res);
+    }).finally(()=>{
+        console.log("执行了finally");
+    })
+    // let p2 = new Promise(resolve=>{
+    //     setTimeout(() => {
+    //         resolve(222);
+    //     }, 2000);
+    // })
+    // 所有结果都必须是resolve；
+    // Promise.all([p1,p2]).then(res=>{
+    //     console.log(res);
+    // })
+        // Promise.race([p1,p2]).then(res=>{
+        //     console.log(res);
+        // })
+
+// 作业 ：在老师的代码基础上 实现 原生promise 里的finally方法功能；
+
+</script>
+</html>

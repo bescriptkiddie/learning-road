@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./myvue2.js" type="text/javascript"></script>
+</head>
+
+<body>
+    
+    <div id="app">
+        <!-- <div>
+            {{message}}
+            <div>
+                {{message}}
+            </div>
+        </div> -->
+        <!-- 表达式 -->
+        <!-- 11{{message}}22 -->
+        <!-- <hr>
+        {{mydata}}
+        <div v-text="message" class="box"></div>
+        <hr>
+        <input v-model="message" /> -->
+        <!-- {{mydata}} -->
+        <div v-html="message"></div>
+    </div>
+    <!-- {{message}} -->
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "<h1>测试数据</h1>",
+            mydata: "数据二"
+        }
+    })
+
+    //  setTimeout(()=>{
+    //     //  console.log("111");
+    //      console.log(vm._data);
+    //     //  vm._data.message = "修改的数据"
+    //     // vm._data.mydata = "修改的值";
+    //  },1000)
+</script>
+
+</html>
