@@ -1,0 +1,1 @@
+console.log("kkb - for - test - 09")

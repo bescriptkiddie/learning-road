@@ -48,4 +48,3 @@ Promise.prototype.then = function (onResovled) {
     })
   })
 }
-

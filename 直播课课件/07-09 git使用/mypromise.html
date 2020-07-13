@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./myPromise.js"></script>
+</head>
+<body>
+    <h1>自己封装的promise</h1>
+</body>
+<script>
+    // setTimeout(() => {
+    //     console.log("settimeout....");  
+    // }, 0);
+    // let p = new KPromise((resolve,reject)=>{
+    //     // resolve();
+    //     // 执行了回调
+    //     // setTimeout(() => {
+    //         // resolve("success");
+    //     // }, 100);
+    //     reject("err");
+    // })
+    // console.log(p);
+    // then 加入队列  ；先执行 后加入了；  --->先加入队列，后执行；
+//    let res =  p.then(res=>{
+//        console.log(res);
+//         // console.log(res);
+//         // return KPromise
+//         // return 111;
+//         // return new KPromise(resolve=>{
+//         //     resolve("返还的KPromise");
+//         // })
+//    },err=>{
+//        console.log(err);
+//    })
+    // console.log("??",res);
+    // then始终返还的promise对象；--->链式调用；
+    // res.then(res=>{
+    //     console.log(res);
+    // })
+
+    
+    //  let p =   KPromise.reject("111");
+    //  console.log(p);
+    // let p =    new KPromise((resolve,reject)=>{
+    //         reject("err...");
+    //     })
+    //     p.then(res=>{
+    //         console.log(res);
+    //     }).catch(err=>{
+    //         console.log(err);
+    //     })
+
+    // let p1 = new KPromise((resolve,reject)=>{
+    //     // resolve(111);
+    //     reject("err...")
+    // })
+    // let p2 = new KPromise(resolve=>{
+    //     resolve(222);
+    // })
+    // KPromise.all([p1,p2]).then(res=>{
+    //     console.log(res);
+    // })
+
+    let p1 = new KPromise((resolve,reject)=>{
+        // setTimeout(() => {
+            // resolve(111);
+            reject("err...")
+        // }, 1000);
+    })
+    // p1.finally(()=>{
+    //     console.log("执行了回调");
+    // });
+    p1.then(res=>{
+        console.log(res);
+    }).finally(()=>{
+        console.log("执行回调");
+    })
+//    let res =  p1.then(res=>{
+//         console.log(res);
+//     },err=>{
+//         console.log(err);
+//     }).catch(err=>{
+//         console.log(err);
+//     })
+    // console.log(res.then);
+    // p1.then(res=>{
+    //     console.log(res);
+    // },err=>{
+    //     console.log(err);
+    // }).catch(err=>{
+    //     console.log("??",err)
+    // })
+    // let p2 =  p1.then(res=>{
+    //     console.log(res);
+    //     return new KPromise(resolve=>{
+    //         resolve(222);
+    //     })
+
+
+    //     // return  如何去触发p2这个对象的resolve，否则p2中then的注册函数就无法执行
+        
+    //     // return 222;
+    // })
+    // console.log("----??",p2);
+    // p2.then(res=>{
+    //     console.log(res);
+    // })
+
+
+    // then 方法 会返还新的promise对象 同时会讲判断返还类型的函数注册到上一个promise的resolveQueue里 通过 下一次then执行上一次promise的resolveQueue队列；
+    // p1:[fn]
+    // p2:[]
+
+    // console.log("??--",res);
+    // let p2 = new KPromise((resolve,reject)=>{
+    //     setTimeout(() => {
+    //          reject("err...")
+    //         // resolve(222);
+    //     }, 2000);
+    // })
+    // 所有结果都必须是resolve；
+    // KPromise.all([p1,p2]).then(res=>{
+    //     console.log(res);
+    // })
+        // KPromise.race([p1,p2]).then(res=>{
+        //     console.log(res);
+        // })
+
+
+</script>
+</html>
