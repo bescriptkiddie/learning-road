@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title &#x6587;&#x7AE0;&#x4FE1;&#x606F;&#x5C55;&#x793A;
+    link(rel="stylesheet" type="text/css" href="css/index.css")
+  body
+    .wrap
+      ul.news-list
+      each data in newsData 
+        li.news
+          a(href="javascript:;")
+            img(src=data.imgUrl alt="")
+          div
+            h3
+              a(href="/detail?id="+data.id) #{data.title}
+            .info
+              span.tips
+                span #{data.from}
+              // <span class="line"></span>
+              span.time | &nbsp;&nbsp;#{data.newTime}
+      .pagination
+        a.prev(href="/?p="+(Math.max(p-1,1))) &ulcorn;
+        - for(let i=1;i<=pageCount;i++)
+            a(href="/?p="+i) #{i}
+        a.next(href="/?p="+(Math.min(p+1,pageCount))) &urcorn;

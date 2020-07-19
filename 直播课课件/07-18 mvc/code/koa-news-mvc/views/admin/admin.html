@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/admin.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-left">
+            <ul>
+                <li>新闻添加</li>
+                <li>新闻列表</li>
+            </ul>
+        </div>
+        <iframe
+            src="file:///Users/yuweihai/Desktop/%E6%A1%8C%E9%9D%A2/%E5%BC%80%E8%AF%BE%E5%90%A7/%E7%BB%86%E5%8C%96%E8%BF%87%E8%AF%BE/nodejs/%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF%E5%B1%95%E7%A4%BA%E6%A8%A1%E6%9D%BF/%E5%B8%A6%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/addNews.html"
+            frameborder="0" width="800px"></iframe>
+    </div>
+</body>
+<script>
+    let lis = document.querySelectorAll("li");
+    Array.from(lis).forEach(v => {
+        v.onclick = function () {
+            Array.from(lis).forEach(value => {
+                if (this == value) {
+                    this.style.color = "rgb(255, 208, 75)";
+                    let iframeNode = document.querySelector("iframe");
+                    if (this.textContent == "新闻添加") {
+                        iframeNode.src = "file:///Users/yuweihai/Desktop/%E6%A1%8C%E9%9D%A2/%E5%BC%80%E8%AF%BE%E5%90%A7/%E7%BB%86%E5%8C%96%E8%BF%87%E8%AF%BE/nodejs/%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF%E5%B1%95%E7%A4%BA%E6%A8%A1%E6%9D%BF/%E5%B8%A6%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/addNews.html";
+                    } else {
+                        //新闻列表
+                        iframeNode.src = "file:///Users/yuweihai/Desktop/%E6%A1%8C%E9%9D%A2/%E5%BC%80%E8%AF%BE%E5%90%A7/%E7%BB%86%E5%8C%96%E8%BF%87%E8%AF%BE/nodejs/%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF%E5%B1%95%E7%A4%BA%E6%A8%A1%E6%9D%BF/%E5%B8%A6%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/newsList.html";
+                    }
+                } else {
+                    value.style.color = "white";
+                }
+            })
+        }
+    })
+
+</script>
+
+</html>
