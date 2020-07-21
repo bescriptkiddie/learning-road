@@ -8,3 +8,4 @@
    4. 使用 koa-static 起静态服务，访问 index.html 页面
    5. 把上传的文件保存到 static/upload 目录下
    6. Form 表单文件上传
+

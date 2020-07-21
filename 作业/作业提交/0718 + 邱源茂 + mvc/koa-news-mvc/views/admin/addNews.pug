@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Document
+    link(rel='stylesheet', href='./css/addNews.css', type='text/css')
+  body
+    .menu-content
+      h1 添加新闻
+      form.addInput(method='post', action='/admin/addData' enctype="multipart/form-data")
+        div
+          | 标题：
+          input.title(type='text' name="title")
+        .contentContainer
+        div
+          | 来源：
+          select.selectStyle(name='from', id='')
+            option(value='环球网')
+              | 环球网
+            option(value='观察者网')
+              | 观察者网
+            option(value='海外网')
+              | 海外网
+            option(value='新京报')
+              | 新京报
+        .uploadContainer
+          | 缩略图：
+          span.fileinput-button
+            span 上传图片
+            input.imgFile(type='file', name='img')
+        div
+          button.btn(type='submit') 提交
