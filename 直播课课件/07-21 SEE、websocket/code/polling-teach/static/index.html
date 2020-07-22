@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    时间
+    <div class="clock"></div>
+
+    <script>
+      // 发起一个请求
+      setInterval(() => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("get", "/polling");
+        xhr.onload = () => {
+          console.log(xhr);
+          console.log(xhr.response);
+          document.querySelector(".clock").innerText = xhr.response;
+        };
+        xhr.send();
+      }, 200);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    时间 sse
+    <div class="block"></div>
+    <script>
+      const eventSource = new EventSource("/sse");
+
+      eventSource.addEventListener("open", (e) => {
+        console.log("open");
+        console.log(e);
+      });
+
+      eventSource.addEventListener("message", (e) => {
+        console.log("message");
+        console.log(e);
+        document.querySelector('.block').innerText = e.data
+      });
+
+      eventSource.addEventListener("kkb", (e) => {
+        console.log("kkb");
+        console.log(e);
+        document.querySelector('.block').innerText = e.data
+      });
+
+      eventSource.addEventListener("error", (e) => {
+        console.log("error");
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>

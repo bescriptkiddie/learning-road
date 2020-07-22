@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    ws 时间
+    <div class="block"></div>
+    <button onclick="onStart()">start</button>
+    <button onclick="onStop()">stop</button>
+    <script>
+      // http  ws
+      const websocket = new WebSocket("ws://localhost:3000");
+
+      function onStart() {
+        // 发消息给后端
+        // 告诉他给我数据
+        websocket.send("start");
+      }
+
+      function onStop() {
+        websocket.send("stop");
+      }
+
+      websocket.addEventListener("open", (e) => {
+        console.log("open");
+        console.log(e);
+        websocket.send("hi  my name is a client")
+      });
+      websocket.addEventListener("message", (e) => {
+        console.log("message");
+        console.log(e);
+        document.querySelector('.block').innerText = e.data
+      });
+      websocket.addEventListener("error", (e) => {
+        console.log("error");
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>
