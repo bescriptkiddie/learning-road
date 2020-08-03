@@ -1,0 +1,16 @@
+{
+  "name": "egg-tdd",
+  "version": "1.0.0",
+  "description": "测试驱动开发",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.7",
+    "jest": "^26.1.0"
+  }
+}

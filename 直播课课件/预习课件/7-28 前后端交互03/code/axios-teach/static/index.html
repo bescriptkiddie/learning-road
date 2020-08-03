@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <button onclick="onGet()">get</button>
+    <button onclick="onPost()">post</button>
+
+    <script>
+      // 请求拦截
+      axios.interceptors.request.use((config) => {
+        console.log("request 111");
+        console.log(config);
+        return config;
+      });
+
+      axios.interceptors.request.use((config) => {
+        console.log("request 222");
+        console.log(config);
+        return config;
+      });
+
+      // 响应拦截器
+      axios.interceptors.response.use((response) => {
+        console.log("response 111");
+        console.log(response);
+        return response;
+      });
+
+      axios.interceptors.response.use((response) => {
+        console.log("response 222");
+        console.log(response);
+        return response;
+      });
+
+      function onGet() {
+        const data = {
+          name: "xiaohong",
+          age: 18,
+        };
+        // 函数调用
+        // axios({
+        //   method: "get",
+        //   url: "/getData",
+        //   params: {
+        //   name: "xiaohong",
+        //   age: 18,
+        //   },
+        // }).then((res) => {
+        //   console.log(res.data);
+        // });
+
+        // 对象调用
+        axios
+          .get("/getData", {
+            params: {
+              ...data,
+            },
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+      }
+      function onPost() {
+        // 函数调用
+        // axios({
+        //   method: "post",
+        //   url: "/postData",
+        //   data: {
+        //     name: "xiaohong",
+        //     age: 18,
+        //   },
+        // }).then((res) => {
+        //   console.log(res.data);
+        // });
+        //对象调用
+        axios.post("/postData", { name: "xiaohong", age: 18 }).then((res) => {
+          console.log(res.data);
+        });
+      }
+    </script>
+  </body>
+</html>

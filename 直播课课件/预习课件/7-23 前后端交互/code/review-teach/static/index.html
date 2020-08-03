@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="onget()">get</button>
+    <button onclick="onPost()">post</button>
+
+    <script>
+      function onget() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("get", "/getData?name=h&age=19");
+        xhr.onload = (e) => {
+          console.log(JSON.parse(e.target.response));
+        };
+        xhr.send();
+      }
+
+      function onPost() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("post", "/postData");
+        xhr.onload = (e) => {
+          console.log(JSON.parse(e.target.response));
+        };
+
+        const data = {
+          name: "h",
+          age: 10,
+        };
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send(JSON.stringify(data));
+        // const data = "name=h&age=10";
+        // xhr.setRequestHeader(
+        //   "content-type",
+        //   "application/x-www-form-urlencoded"
+        // );
+        // xhr.send(data);
+      }
+    </script>
+  </body>
+</html>

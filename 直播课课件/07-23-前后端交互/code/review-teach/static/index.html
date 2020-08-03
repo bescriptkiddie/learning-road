@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="onGet()">get</button>
+    <button onclick="onPost()">post</button>
+
+    <script>
+      function onGet() {
+        const xhr = new XMLHttpRequest();
+        // localhost:8080/getData
+        xhr.open("get", "/getData?name=xiaohong&age=10");
+        xhr.onload = (e) => {
+          // 异步
+          console.log(JSON.parse(e.target.response));
+          console.log(xhr.response);
+        };
+        xhr.send();
+      }
+
+      function onPost() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("post", "/postData");
+        xhr.onload = (e) => {
+          console.log(JSON.parse(e.target.response));
+          console.log(xhr.response);
+        };
+
+        const data = {
+          name: "xiaohong",
+          age: 10,
+        };
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send(JSON.stringify(data));
+      }
+    </script>
+  </body>
+</html>

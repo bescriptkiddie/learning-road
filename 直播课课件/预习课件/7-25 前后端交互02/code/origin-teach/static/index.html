@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="onHomologous()">同源get-data</button>
+    <button onclick="onNoHomologous()">非同源get-data</button>
+    <button onclick="onNoPost()">非同源post-data</button>
+    <button onclick="onLogin()">login</button>
+
+    <script>
+      function onNoPost() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("post", "http://localhost:8081/postData");
+        xhr.onload = (e) => {
+          console.log(xhr.response);
+        };
+
+        const data = {
+          name: "xiaohong",
+          passwd: "123",
+        };
+
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send(JSON.stringify(data));
+      }
+
+      // 跨域
+      function onLogin() {
+        // const xhr = new XMLHttpRequest();
+        // xhr.open("post", "http://localhost:8081/login");
+        // xhr.onload = () => {
+        //   console.log(xhr.response);
+        // };
+        // xhr.send();
+        const xhr = new XMLHttpRequest();
+        // http://localhost:8080/getData
+        xhr.open("post", "http://loalhost:8081/login");
+        xhr.onload = (e) => {
+          console.log(xhr.response);
+        };
+        xhr.withCredentials = true;
+        xhr.send();
+      }
+
+      function onNoHomologous() {
+        const xhr = new XMLHttpRequest();
+        // http://localhost:8080/getData
+        xhr.open("get", "http://localhost:8081/getData");
+        xhr.onload = (e) => {
+          console.log(xhr.response);
+          console.log(xhr.getAllResponseHeaders());
+        };
+        xhr.withCredentials = true;
+        xhr.send();
+      }
+
+      // 同源
+      function onHomologous() {
+        const xhr = new XMLHttpRequest();
+        // http://localhost:8080/getData
+        xhr.open("get", "/getData");
+        xhr.onload = (e) => {
+          console.log(xhr.response);
+        };
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

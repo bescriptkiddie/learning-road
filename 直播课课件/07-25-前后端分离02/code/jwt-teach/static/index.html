@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="onLogin()">login</button>
+  <button onclick="onGet()">getData</button>
+
+  <script>
+    function onGet(arguments) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "/getData");
+      xhr.onload = () => {
+        const res = JSON.parse(xhr.response);
+        console.log(res);
+      };
+      // 请求头
+      // Authentication
+      const token = localStorage.getItem("token");
+      xhr.setRequestHeader("Authorization", token);
+      xhr.send();
+    }
+
+    function onLogin() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("post", "/login");
+      xhr.onload = () => {
+        const res = JSON.parse(xhr.response);
+        console.log(res);
+        // 1. 先存到
+        localStorage.setItem("token", "Bearer "+res.data.token);
+      };
+
+      const data = {
+        username: "h",
+        passwd: "123",
+      };
+      xhr.setRequestHeader("content-type", "application/json");
+      xhr.send(JSON.stringify(data));
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="onOriginGet()">同源 get</button>
+  <button onclick="onNoOriginGet()">非同源 get</button>
+  <button onclick="onLogin()">同源 login</button>
+  <button onclick="onNoLogin()">非同源 login</button>
+  <button onclick="onNoRequest()">非同源 非简单请求</button>
+
+  <script>
+    function onOriginGet() {
+      // ajax
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:8080/getData");
+      xhr.onload = () => {
+        console.log(xhr.response);
+      };
+
+      xhr.send();
+    }
+
+    function onLogin() {
+      // ajax
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:8080/login");
+      xhr.onload = () => {
+        console.log(xhr.response);
+      };
+
+      xhr.send();
+    }
+
+    function onNoLogin() {
+      // ajax
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:8081/login");
+      xhr.onload = () => {
+        console.log(xhr.response);
+      };
+
+      xhr.send();
+    }
+
+    function onNoOriginGet() {
+      // ajax
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "http://localhost:8081/getData");
+      xhr.onload = () => {
+        console.log(xhr.response);
+      };
+      //解决同源之后没有自动带上cookies
+      xhr.withCredentials = true;//设置凭证,查看cookies
+      xhr.send();
+    }
+
+    function onNoRequest() {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("post", "http://localhost:8081/postData");
+      xhr.onload = () => {
+        console.log(xhr.response);
+      };
+
+      xhr.setRequestHeader("content-type", "application/json");
+      const data = {
+        name: "123",
+        age: 18,
+      };
+
+      xhr.send(JSON.stringify(data));
+    }
+  </script>
+</body>
+
+</html>

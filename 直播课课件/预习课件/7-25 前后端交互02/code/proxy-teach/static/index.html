@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="onGetData()">getData</button>
+
+    <script>
+      function onGetData() {
+        const xhr = new XMLHttpRequest();
+
+        // xhr.open("get", "/getData");
+        xhr.open("get", "/api/getData");
+        xhr.onload = () => {
+          console.log(xhr.response);
+        };
+
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>
