@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "axios": "^0.19.2",
+    "class-validator": "^0.12.2",
+    "glob": "^7.1.6",
+    "koa": "^2.13.0",
+    "koa-router": "^9.1.0",
+    "koa-ts-controllers": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.3",
+    "@types/koa-router": "^7.4.1"
+  }
+}

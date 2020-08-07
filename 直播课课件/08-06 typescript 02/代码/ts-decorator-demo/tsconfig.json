@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "target": "ES6",
+        "experimentalDecorators": true
+    },
+    "include": [
+        "./src/**/*.ts"
+    ]
+}

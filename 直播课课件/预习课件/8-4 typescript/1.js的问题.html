@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text">
+    +
+    <input type="text">
+    <button>=</button>
+    <span>?</span>
+
+    <script>
+
+        let inputs = document.querySelectorAll('input');
+        let button = document.querySelector('button');
+        let span = document.querySelector('span');
+
+        button.onclick = function() {
+            // 获取到到value是字符串类型，相加是字符串拼接，而不是数字相加
+            // 但是这样的问题，js 是无法在我们编写代码的过程中给出警告的
+            // 1、需要我们靠经验去避免
+            // 2、靠运行以后发现错误
+
+            // 问题：js 无法在程序运行之前帮助我们去检测程序中的数据在类型使用上的问题
+            // 比如 我们把一个数组作为字符串去使用，比如调用了某个数组变量的字符串的方法
+
+            // let result = ['a','b','c'];
+            // result[0].toUpperCase();
+            // result.toUpperCase();
+
+            span.innerHTML = inputs[0].value + inputs[1].value;
+        }
+
+    </script>
+
+</body>
+</html>

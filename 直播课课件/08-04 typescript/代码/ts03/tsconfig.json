@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "lib": ["DOM"]
+  },
+  "include": ["./src/**/*"]
+}

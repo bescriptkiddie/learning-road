@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            装饰者模式
+                扩展
+        */
+
+        function fn1(a, b) {
+            console.log('fn1', a, b);
+        }
+
+        // fn1();
+
+        // 在 fn1 函数执行之前或者之后去做一件额外事情
+
+        // 当前这个函数的作用是对目标函数进行一层包装
+        function hello(target) {
+            // target();
+            return function(...args) {
+                console.log('hello');
+                target(...args);
+            }
+        }
+
+        function bye(target) {
+            return function(...args) {
+                target(...args);
+                console.log('bye bye');
+            }
+        }
+
+        // hello();
+        // fn1();
+
+        let newFn1 = bye( hello( fn1 ) );
+
+        newFn1(1, 2);
+    </script>
+</body>
+</html>
