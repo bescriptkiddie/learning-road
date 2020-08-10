@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <div>{{n}}</div>
+        <!-- <input type="text" :value="n" @input="updateN" /> -->
+        
+        <input type="text" v-model="n" />
+        
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+        /**
+         * 数据到绑定
+         *  默认（ {{}}，v-bind）等实现到数据绑定，都是单向：数据  => 视图
+         *      数据变化 => 视图渲染
+         *  视图变化是不会更新数据的
+         */
+        let app = new Vue({
+            el: '#app',
+            data: {
+                n: 1
+            },
+            // methods: {
+            //     updateN(e) {
+            //         // console.log(e.target.value);
+            //         this.n = e.target.value;
+            //     }
+            // }
+        });
+
+        
+
+    </script>
+</body>
+</html>

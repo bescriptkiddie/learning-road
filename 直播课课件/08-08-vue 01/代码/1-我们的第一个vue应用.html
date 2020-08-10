@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+        /**
+         * 模板引擎
+         *      - 数据
+         *      - 模板
+         * 组件
+         *      对具有特定对独立的或者可复用的模板的封装
+         *      Vue2中组件类别
+         *          - 根组件
+         *              - 在一个Vue的应用中，有且仅有一个根组件，类似于HTML标签
+         *              - new Vue => 应用
+         *          - 可复用组件
+         *              - 一个应用根组件中就是由N个可复用的组件组合而成的
+         */
+
+
+        // 组件在创建的时候，可以接收一个配置参数，Vue内部就会根据这个配置参数（对象）来处理组件内部的一些逻辑（数据拦截，绑定，模板渲染）
+        let app = new Vue({
+            // data: 用来存储该组件需要使用到的数据
+            data: {
+                title: '欢迎大家来到开课吧'
+            },
+            // template: 模板
+            template: `
+                <div id="app">
+                    <h1>开课吧</h1>
+                    <p>{{title}}</p>
+                </div>
+            `,
+            // 模板渲染完成以后的DOM的挂载点 
+            el: '#app'
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+        /*
+            html字符串模板 => vNode
+
+            vNode: 虚拟节点
+            Node: 真实节点，也是一个js对象
+                数据交换
+                    后端有数据
+                    前端也会要用后端提供的数据
+                        
+                        1、后端的数据类型（数据结构定义）和前端（js）数据类型并不一致
+                        2、数据在传输过程中会转成二进制（没有什么数据类型）
+                    语言之间（平台之间、网络）需要通过不同的手段方式去转换交换的数据到当前这门语言对应一些数据结构，我们可以为这种交换数据定义一个通用格式（json）
+            dom
+                文档对象模型
+                html 是一门语言
+                javascript 也是一门语言
+                js为了能够操作html这种结构，需要对html进行解析，解析成js方便操作的数据
+                把html解析成js中的对象，用js中的对象去描述html中每一个节点
+                没有对象就和页面中的对应标签有一定的关联关系，当我们操作对象的时候，对象的变化会同步更新页面结构（浏览器）
+        真实的DOM Node结构很复杂
+
+        vue 内部自己会先创建一个对象，这个对象结构类似于原生DOM对象，但是这个对象结构比较简单，该对象的变化不会立即渲染视图，在这个过程我们可以去比较新的虚拟对象和原来的虚拟对象之间的差异，更新差异的部分
+        */
+
+    
+        let app = new Vue({
+            el: '#app',
+            data: {
+                n: 1
+            },
+            // template: `
+            //     <div id="app">
+            //         <h1>开课吧</h1>
+            //         <p>{{n}}</p>
+            //     </div>
+            // `
+            render(createElement) {
+                let vNode = createElement(
+                    'div',
+                    {
+                        attrs: {
+                            id: 'app'
+                        }
+                    },
+                    [
+                        createElement(
+                            'h1',
+                            '开课吧'
+                        ),
+                        createElement(
+                            'p',
+                            this.n
+                        )
+                    ]
+                );
+
+                console.log('vNode', vNode);
+
+                // patch(vNode1, vNode2);
+
+                return vNode;
+            }
+        });
+
+        // console.dir(document.body)
+
+    </script>
+</body>
+</html>

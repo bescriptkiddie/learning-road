@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <div id="app">
+        <h1>开课吧</h1>
+        <p>{{n}}</p>
+    </div> -->
+
+    <div id="app">
+        
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+        // 如果选项中没有 template，但是有 el 选项，那么Vue 会把 el 元素的 outerHTML 作为 template
+        // let app = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         n: 1
+        //     }
+        // });
+
+        // 如果没有 el，那么这个时候就是没有挂载点
+        let app = new Vue({
+            data: {
+                n: 1
+            },
+            template:`
+                <div id="app">
+                    <h1>开课吧</h1>
+                    <p>{{n}}</p>
+                </div>
+            `
+        });
+        console.log(app);
+        // 我们可以通过 $mount('#app') 来进行挂载
+
+    </script>
+</body>
+</html>

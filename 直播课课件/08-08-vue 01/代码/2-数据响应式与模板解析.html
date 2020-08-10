@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+        /**
+         * app 就是一个组件实例对象，该对象提供组件的许多属性和方法
+         *      _ 开头：组件内部私有属性和方法（不要去调用）
+         *      $ 开头：组件对外提供的公有属性和方法
+         *      其它：我们用户（定义组件创建组件的程序员们自定义的）
+         */
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                n: 1
+            },
+            template: `
+                <div id="app">
+                    <h1>开课吧</h1>
+                    <p>{{n}}</p>
+                </div>
+            `
+        });
+
+        console.log('app', app);
+
+    </script>
+</body>
+</html>
