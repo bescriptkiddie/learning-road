@@ -93,10 +93,10 @@
                         <span>全选</span>
                         <span @click="removeChecked()">删除</span>
                     </div>
+                    <!-- 总数量,合计,支付状态 -->
                     <div>
-                        <span>一共选择了 <strong class=" quantity">{{totalQuantity}}</strong> 件商品，总计 <strong class="total">¥
-                                {{totalPrice}}</strong>
-                            元</span>
+                        <span>一共选择了 <strong class=" quantity">{{totalQuantity}}</strong> 件商品，
+                            总计 <strong class="total">¥{{totalPrice}}</strong>元</span>
                         <!-- 数量大于0时,允许支付 -->
                         <span class="pay-btn " :class="{disabled:totalQuantity > 0 ? false : true }">立即支付</span>
                     </div>
