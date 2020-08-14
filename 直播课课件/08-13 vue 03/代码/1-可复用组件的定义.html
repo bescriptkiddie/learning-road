@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!--  => createElement('h1'); -->
+        <h1>可复用组件</h1>
+        <hr />
+        <!--  => new componentOptions.Ctor().render(); -->
+        <kkb-child></kkb-child>
+
+        <kkb-child></kkb-child>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+        /*
+            使用 Vue.component 方法来定义一个可复用的组件
+                - 可复用和new Vue 得到的对象基本是一致，只是有一些细节上差异
+                - 选项上也大致相同的，一些细节上有差异
+
+            Vue.component方法会返回的是一个Vue的子类
+        */
+
+        // class A {
+
+        // }
+
+        // A.get = function() {
+        //     return new A();
+        // }
+
+        // let a = a.get();
+        // let b = new A();
+        
+
+        // let TabChild = Vue.component('kkb-tab', {
+        //     template: `
+        //         <div>Tab</div>
+        //     `
+        // });
+        // let SliderChild = Vue.component('kkb-tab', {
+        //     template: `
+        //         <div>Slider</div>
+        //     `
+        // });
+        
+        // let c1 = new Child();
+        // let c2 = new Child();
+        // let s1 = new SliderChild();
+
+        // Child 是 Vue 的子类
+        // 因为 new Vue 创建的根组件对象
+        // 我要再创建一个可复用的类，通过这个类可以创建可复用的组件对象
+        // 因为可复用的组件类实际上与根组件类长得又听像的，所以是不是可以直接去继承 Vue
+
+        // 命名规则：字母开头，后面是-.数字等组成的，不能是内置标签，不能是保留标签
+        // 我们推荐大家使用命名空间，kkb-child
+        Vue.component('kkb-child', {
+            // 可复用组件的data必须是一个函数，因为可复用组件可能会有许多份，如果直接设置成对象，则会共享
+            data() {
+                return {
+                    n: 1
+                }
+            },
+            template: `
+                <div>Child - {{n}}</div>
+            `
+        });
+
+        let app = new Vue({
+            el: '#app'
+        });
+
+
+        // function component(name, options) {
+        //     return class A {
+
+        //         constructor() {
+        //             this._data = options.data();
+        //         }
+
+        //     }
+        // }
+
+        // let CA = component('', {
+        //     data() {
+        //         return {
+        //             n: 1
+        //         }
+        //     }
+        // });
+
+        // let c1 = new CA();
+        // let c2 = new CA();
+
+        // console.log('c1', c1);
+        // console.log('c2', c2);
+
+    </script>
+</body>
+</html>

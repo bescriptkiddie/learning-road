@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>可复用组件 - {{p1}}</h1>
+        <hr />
+        
+        <!-- kkb-child 杯子 -->
+        <!-- 和v-model类似，相比v-model更加直观，可以同时绑定多个 -->
+        <kkb-child v-bind:val.sync="p1" v-bind:val2.sync="p1">
+            是杯子装的东西（水）
+            我是内容啊我是内容！
+        </kkb-child>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+       /**
+        * 有些时候，组件设计就是希望能够在内部去更新传入的值
+        * 如果为了数据安全而每次都需要触发事件，父级监听然后修改，这个过程太过于繁琐
+        * v-model
+        *   也是不允许直接内容修改props
+        * 
+        * 并不推荐使用v-model，因为隐藏细节了
+        */
+        Vue.component('kkb-child', {
+            // 即使使用了v-model也是需要定义个props
+            props: {
+                val: Number,
+                val2: Number
+            },
+            data() {
+                return {
+                    n: this.val
+                }
+            },
+            template: `
+                <div>
+                    <div @click="change1">Child - {{n}}</div>
+                    <div @click="change2">val: {{val}}</div>
+                </div>
+            `,
+            methods: {
+                change1() {
+                    this.n++;
+                },
+                change2() {
+                    this.$emit('update:val', this.val + 1);
+
+                    // 
+                    // this.$emit('update:val2', 1000);
+                }
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    p1: 100
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

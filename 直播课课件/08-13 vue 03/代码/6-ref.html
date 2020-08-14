@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1 ref="h1">可复用组件 - {{p1}}</h1>
+        <button @click="getChildInfo">获取子组件内部的数据</button>
+        <hr />
+        
+        <kkb-child v-bind:val.sync="p1" ref="kkbChild1">
+            是杯子装的东西（水）
+            我是内容啊我是内容！
+        </kkb-child>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+       /**
+        * ref
+        *   类似 id
+        */
+        Vue.component('kkb-child', {
+            props: {
+                val: Number,
+                val2: Number
+            },
+            data() {
+                return {
+                    n: this.val
+                }
+            },
+            template: `
+                <div>
+                    <div @click="change1">Child - {{n}}</div>
+                    <div @click="change2">val: {{val}}</div>
+                </div>
+            `,
+            methods: {
+                change1() {
+                    this.n++;
+                },
+                change2() {
+                    this.$emit('update:val', this.val + 1);
+                }
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    p1: 100
+                }
+            },
+            methods: {
+                getChildInfo() {
+                    console.log(this.$refs);
+
+                    this.$refs.kkbChild1.change1();
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1 ref="h1">可复用组件 - {{p1}}</h1>
+        <hr />
+        
+        <kkb-child v-bind:val.sync="p1" ref="kkbChild1">
+            <template>
+                <p>是杯子装的东西（水）{{p1}}</p>
+            </template>
+            <template v-slot:orange="data">
+                <p>我是内容啊我是内容！</p>
+                <p>这是 kkb-child 传入的数据： {{data}}</p>
+            </template>
+        </kkb-child>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+       /**
+        * 
+        */
+        Vue.component('kkb-child', {
+            props: {
+                val: Number,
+                val2: Number
+            },
+            data() {
+                return {
+                    n: this.val,
+                    m: 100000
+                }
+            },
+            // <slot></slot>  Vue 内置，已经实现的，会自动渲染组件包含的部分
+            template: `
+                <div style="border: 10px solid red; padding: 10px;">
+                    <div style="border: 5px solid green; padding: 5px;">
+                        <slot></slot>
+                    </div>
+
+                    <div style="border: 5px solid orange; padding: 5px;">
+                        <slot name="orange" :ln="n" :lm="m"></slot>
+                    </div>
+                </div>
+            `,
+            methods: {
+                change1() {
+                    this.n++;
+                },
+                change2() {
+                    this.$emit('update:val', this.val + 1);
+                }
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    p1: 100
+                }
+            },
+            methods: {
+                
+            }
+        });
+
+
+    </script>
+</body>
+</html>

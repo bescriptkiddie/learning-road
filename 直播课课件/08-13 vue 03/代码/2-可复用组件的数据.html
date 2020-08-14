@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>可复用组件</h1>
+        <hr />
+        <!-- 如果属性的名称没有用指令，那么它的值就是一个普通的属性 -->
+        <kkb-child a='1' :b='2'></kkb-child>
+
+        <kkb-child a='kkb' :b='200'></kkb-child>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+       /**
+        * 每一个组件都可能会有数据
+        *   1、组件内部私有数据 - 函数内部变量 - data
+        *   2、组件外部传入数据 - 函数的参数 - props
+        * 
+        * props
+        *   为了保证props传入数据的正确性，props还可以定义成对象形式，用来进行内部的一些验证
+        */
+        Vue.component('kkb-child', {
+            // props 中的数据与 data 类似，都会代理到组件实例上
+            // props: ['a', 'b'],
+            props: {
+                a: String,
+                b: Number
+            },
+            data() {
+                return {
+                    n: 1
+                }
+            },
+            template: `
+                <div>
+                    <div>Child - {{n}}</div>
+                    <div>a: {{a}}</div>
+                    <div>b: {{b}}</div>
+                </div>
+            `
+        });
+
+        let app = new Vue({
+            el: '#app'
+        });
+
+
+    </script>
+</body>
+</html>

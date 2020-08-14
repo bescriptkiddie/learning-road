@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>可复用组件</h1>
+        <hr />
+        
+        <!-- kkb-child 杯子 -->
+        <kkb-child :val="p1" @abc="changeVal">
+            是杯子装的东西（水）
+            我是内容啊我是内容！
+        </kkb-child>
+
+        <hr />
+
+        <kkb-child :val="p1"></kkb-child>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+
+       /**
+        * 
+        */
+        Vue.component('kkb-child', {
+            props: {
+                val: Number
+            },
+            data() {
+                return {
+                    n: this.val
+                }
+            },
+            // shadow 阴影，杯子的构造物
+            template: `
+                <div>
+                    <div @click="change1">Child - {{n}}</div>
+                    <div @click="change2">val: {{val}}</div>
+                </div>
+            `,
+            methods: {
+                change1() {
+                    this.n++;
+                },
+                change2() {
+                    // 不要直接修改props的数据
+                    // 因为props传入的数据不仅仅只是被当前的组件所使用，还可能被其它组件用
+                    // 单向数据流
+                    // this.val++;
+
+                    // 如果非要修改数据，那么需要把数据的请求通知给父级（数据的持有人）
+                    // 类似 addEventListener
+                    this.$emit('abc', this.val + 1);
+                }
+            }
+        });
+
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    p1: 100
+                }
+            },
+            methods: {
+                changeVal(newVal) {
+                    // p1 的数据修改了，因为p1的数据是响应式的，所以p1的值在这里修改了以后，会重新渲染组件
+                    // console.log('123')
+                    this.p1 = newVal;
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>
