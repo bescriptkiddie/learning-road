@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <kkb-c1></kkb-c1>
+        <!-- <kkb-c2></kkb-c2> -->
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        // 全局注册
+        Vue.component('kkb-c1', {
+            template: `<div>
+                kkb-c1
+                <kkb-c2></kkb-c2>
+            </div>`,
+
+            components: {
+                // 只能在当前注册的组件内使用（不能在其它-父级，子级）
+                'kkb-c2': {
+                    template: `<div>kkb-c2</div>`
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>

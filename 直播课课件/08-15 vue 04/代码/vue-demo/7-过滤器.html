@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        obj: {{obj|fn1(100)|fn2|fn3(1000)}}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                obj: {}
+            },
+            filters: {
+                fn1,
+                fn2,
+                fn3
+            }
+        });
+
+
+        function fn1(obj, val) {
+            return {
+                ...obj,
+                a: '护甲:' + val
+            }
+        }
+        function fn2(obj) {
+            return {
+                ...obj,
+                b: '加农炮'
+            }
+        }
+
+        function fn3(obj, dur) {
+            return {
+                ...obj,
+                c: '隐身: ' + dur
+            }
+        }
+
+        // 这也
+        // 那也
+
+        let o = {};
+        let newO = fn3( fn2( fn1( o, 100 ) ), 1000 );
+
+        // linux =>  数据流操作 管道符
+        // let newO = o | fn1(100) | fn2 | fn3(1000);
+
+        console.log(newO);
+    </script>
+</body>
+</html>

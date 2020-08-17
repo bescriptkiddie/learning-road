@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/dialog.css" />
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="visible=!visible">按钮</button>
+
+        c: {{c}}
+
+        <kkb-dialog :title="title" :visible.sync="visible" @open="open" @close="close">
+            <span>这是一段信息</span>
+        </kkb-dialog>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/dialog.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: '新的标题',
+                visible: true,
+                a: 1,
+                b: 2,
+                d: null
+            },
+            computed: {
+                // this.c = computed.c();
+                c() {
+                    return new Promise(resolve => {
+                        setTimeout(() => {
+                            resolve(this.a + this.b);
+                        }, 1000);
+                    })
+                }
+            },
+            watch: {
+                a() {
+                    setTimeout(() => {
+                        this.d = this.a + this.b;
+                    }, 1000)
+                },
+                b() {
+                    setTimeout(() => {
+                        this.d = this.a + this.b;
+                    }, 1000)
+                }
+            },
+            methods: {
+                open() {
+                    console.log('打开了');
+                },
+
+                close() {
+                    console.log('关闭了');
+
+                    // 发送一个请求
+                }
+            }
+        });
+
+        // function fn() {
+        //     return new Promise((resolve) => {
+        //         setTimeout(() => {
+        //             // return 1;
+        //             console.log('123')
+        //             resolve(1);
+        //         }, 1000);
+        //     });
+        // }
+
+        // ~async function() {
+        //     // 如果v是计算属性的概念
+        //     let v = await fn();
+        //     console.log('v', v);
+        // }()
+    </script>
+</body>
+
+</html>

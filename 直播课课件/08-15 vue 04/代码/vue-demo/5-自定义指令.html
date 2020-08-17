@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .current {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <input v-kkb:a.b.c></input>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        // 定义指令的时候，指令的名称不需要使用 v-，但使用的时候需要
+        Vue.directive('kkb', {
+            bind(el) {
+                
+            },
+            inserted(el, binding) {
+                el.focus();
+                console.log('binding', binding);
+            },
+            updated() {
+                
+            },
+            componentUpdated() {
+
+            },
+            unbind() {
+
+            }
+        });
+
+        let app = new Vue({
+            el: '#app'
+        });
+
+        // let input = document.createElement('input');
+
+        // // 这么做会不会报错？
+        // // console.dir(input);
+        // // input.focus();
+
+        // document.body.appendChild(input);
+
+        // input.focus();
+
+        // let div = document.createElement('div');
+
+        // div.style.width = '100px';
+        // div.style.height = '100px';
+        // div.wojiushikuan = '100px';
+
+        // console.log(div.style.width);
+        // console.log(div.wojiushikuan);
+
+        // document.body.appendChild(div);
+
+        // console.log(div.offsetHeight);
+    </script>
+</body>
+</html>

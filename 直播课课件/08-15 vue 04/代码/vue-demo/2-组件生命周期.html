@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <button @click="changeA" ref="aElement">{{a}}</button>
+        <button @click="changeB">{{b}}</button>
+        <hr />
+        <kkb-c1 :v="a" v-if="a<5"></kkb-c1>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        
+        /*
+            一些框架或者库在完成它本身应该做的事情的同时，会对外提供一些接口来在框架或内容某个时间段去调用
+                比如，一个动画库，它提供某些方式（回调函数），在运动的不同阶段执行这些回调
+
+            animation('div', {
+                attrs: {
+                    widht: 100,
+                    height: 200
+                },
+                start() {
+                    
+                },
+                end() {
+
+                }
+            });
+            // 这里的start，end其实就是我们要说的生命周期钩子函数
+            start和end就是这个动画库提供的生命周期点
+        */
+
+        
+        /**
+         * 组件生命周期：组件在创建 - 销毁这段生命过程中的周期
+         */
+        Vue.component('kkb-c1', {
+            props: ['v'],
+            data() {
+                return {
+                    c: 1,
+                    timer: null
+                }
+            },
+            template: `<div>
+                kkb-c1 - {{v}}
+                <button @click="c++">{{c}}</button>
+                <p>{{kkb}}</p>
+            </div>`,
+            beforeCreate() {
+                console.log('kkb-c1', 'beforeCreate');
+            },
+            created() {
+                console.log('kkb-c1', 'created');
+                // this.timer = setInterval(() => {
+                //     console.log(1);
+                // }, 1000);
+            },
+
+            beforeMount() {
+                console.log('kkb-c1', 'beforeMount');
+            },
+            mounted() {
+                console.log('kkb-c1', 'mounted', this.$el);
+            },
+
+            beforeUpdate() {
+                console.log('kkb-c1', 'beforeUpdate');
+            },
+            updated() {
+                console.log('kkb-c1', 'updated');
+            },
+
+            beforeDestroy() {
+                // clearInterval(this.timer);
+                console.log('kkb-c1', 'beforeDestroy');
+            },
+            destroyed() {
+                console.log('kkb-c1', 'destroyed');
+            }
+        });
+
+
+
+        new Vue({
+            el: '#app',
+
+            data: {
+                a: 1,
+                b: 1
+            },
+
+            beforeCreate() {
+                console.log('Vue', 'beforeCreate');
+            },
+            created() {
+                console.log('Vue', 'created');
+            },
+
+            beforeMount() {
+                console.log('Vue', 'beforeMount');
+            },
+            mounted() {
+                console.log('Vue', 'mounted');
+            },
+
+            beforeUpdate() {
+                console.log('Vue', 'beforeUpdate');
+            },
+            updated() {
+                console.log('Vue', 'updated');
+            },
+
+            beforeDestroy() {
+                console.log('Vue', 'beforeDestroy');
+            },
+            destroyed() {
+                console.log('Vue', 'destroyed');
+            },
+
+            methods: {
+                changeA() {
+                    this.a++;
+
+                    // 数据发生改变以后，同时渲染完成以后再去调用
+                    console.log('值：', this.a, this.$refs.aElement.innerHTML);
+                    this.$nextTick(() => {
+                        console.log('干活', this.$refs.aElement.innerHTML);
+                    });
+                },
+                changeB() {
+                    this.b++;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
