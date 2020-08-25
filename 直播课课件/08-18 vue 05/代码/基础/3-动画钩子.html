@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* transition: all 1s; */
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .slide-fade-enter-active, .slide-fade-leave-active {
+            transition: all 1s ease;
+        }
+        .slide-fade-enter {
+            width: 0;
+            height: 0;
+        }
+        .slide-fade-enter-to {
+            width: 100px;
+            height: 100px;
+        }
+
+        .slide-fade-leave {
+          	/*可以和slide-fade-enter-to合并*/
+            width: 100px;
+            height: 100px;
+        }
+        .slide-fade-leave-to {
+          	/*可以和slide-fade-enter合并*/
+            width: 0;
+            height: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <button @click="animate">按钮</button>
+
+        <k-animate v-if="isShow"></k-animate>
+
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        Vue.component('k-animate', {
+            template: `
+                <transition name="slide-fade" @after-leave="afterLeave">
+                    <div class="box"></div>
+                </transition>
+            `,
+            beforeDestroy() {
+                // 如果该组件有动画，那么 beforeDestroy 是不会等待组件的动画完成以后才执行的
+                console.log('beforeDestroy');
+            },
+            methods: {
+                afterLeave(el) {
+                    console.log('afterLeave');
+                }
+            }
+        });
+
+
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    isShow: true
+                }
+            },
+            methods: {
+                animate() {
+                    this.isShow = false;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

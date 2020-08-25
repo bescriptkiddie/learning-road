@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="046c02fd-5b0e-4ae2-b09a-877ae3b15a3a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/server/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/server/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/server/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/src/css/css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/src/fn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/src/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/0801 + 邱源茂 +webpack 02/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/src/css/css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/src/fn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/src/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../作业/作业提交/作业/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/router/axios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/router/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Detail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Detail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/src/views/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../08-18 vue 05/代码/app/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/views/Detail.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/views/Login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/views/Main.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/views/Register.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1gPkJ6j48WlYf0Uu3KXviUoyIvi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="046c02fd-5b0e-4ae2-b09a-877ae3b15a3a" name="Default Changelist" comment="" />
+      <created>1598023539870</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598023539870</updated>
+      <workItem from="1598023541096" duration="7301000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

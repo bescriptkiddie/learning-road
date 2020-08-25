@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 1s;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <button @click="animate">按钮</button>
+        <div class="box" ref="box"></div>
+        <hr />
+        <div class="box" :class="{box2: animated}"></div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        /**
+            在Vue中实现动画，与原生中实现是没有任何区别的
+                使用js自己实现
+                用css实现
+                用第三库实现
+        */
+        // let app = new Vue({
+        //     el: '#app',
+        //     methods: {
+        //         animate() {
+        //             // console.log( $(this.$refs.box) );
+        //             $(this.$refs.box).animate({
+        //                 width: 200,
+        //                 height: 200
+        //             }, function() {
+        //                 console.log('动画完成');
+        //             })
+        //         }
+        //     }
+        // });
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                animated: false
+            },
+            methods: {
+                animate() {
+                    // $(this.$refs.box).addClass('box2');
+
+                    this.animated = !this.animated;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
