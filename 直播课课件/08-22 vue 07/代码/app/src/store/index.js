@@ -1,82 +1,36 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import * as api from '@/api'
 
-Vue.use( Vuex );
+Vue.use(Vuex);
 
 // 构建仓库
 let store = new Vuex.Store({
     // 数据存储的位置，和组件的data一样，也是响应式的
     state: {
-        // a: [1,2,3]
-        a: 1
+        user: JSON.parse(localStorage.getItem('user')) || null,
     },
 
-
     mutations: {
-        changeA(state, payload) {
-            state.a = payload;
-
-            // setTimeout(() => {
-            //     state.a = payload;
-            // }, 1000);
-
-            // return new Promise((resolve) => {
-            //     setTimeout(() => {
-            //         state.a = payload;
-
-            //         resolve();
-            //     }, 1000);
-            // });
+        uploadUser(state,payload){
+            state.user = payload
         }
     },
 
     actions: {
-        changeA(store, payload) {
-
-            // return 1;
-            
-            // 从后端拉取数据
-            let data = payload;
-            store.commit('changeA', data);
-
-            return new Promise((resolve) => {
-                
-                setTimeout(() => {
-                    // store.state.a = payload;
-                    store.commit('changeA', data);
-
-                    resolve();
-                }, 1000);
-            });
-        }
-    }
+        // 只与数据操作有关系 -> 只做数据逻辑
+        async login(store, payload) {
+            try {
+                let rs = await api.login(payload);
+                store.commit('uploadUser',rs.data)
+                localStorage.setItem('user', JSON.stringify(rs.data));
+                localStorage.setItem('token', rs.headers.authorization);
+            } catch (e) {
+                throw (e);
+            }
+        },
+    },
 });
-
-
-
-// commit('changeA', 1)
-
-// function vuex () {
-//     function commit(name, payload) {
-//         mutations[name](state, payload);
-//     }
-
-//     async function dispatch(name, payload) {
-//         await mutations[name](state, payload);
-//     }
-
-//     return {
-//         commit
-//     }
-// }
-
-
-
-// new Promise(() => {
-//     // 这里的代码一定必须是一个异步的代码吗？
-// })
-
-
 
 export default store;
 
